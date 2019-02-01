@@ -51,23 +51,9 @@ namespace DotSnake
                 throw new Exception("oi oi oi you fucked up m80");
         }
 
-        public void RegisterInput(ConsoleKey keyPressed)
+        public void DirectionChange(object sender, Direction direction)
         {
-            switch (keyPressed)
-            {
-                case ConsoleKey.UpArrow:
-                    Snake.SnakeDirection = Direction.Up;
-                    break;
-                case ConsoleKey.DownArrow:
-                    Snake.SnakeDirection = Direction.Down;
-                    break;
-                case ConsoleKey.RightArrow:
-                    Snake.SnakeDirection = Direction.Right;
-                    break;
-                case ConsoleKey.LeftArrow:
-                    Snake.SnakeDirection = Direction.Left;
-                    break;
-            }
+            Snake.SnakeDirection = direction;
         }
 
         public void SpawnFood()
@@ -76,6 +62,5 @@ namespace DotSnake
             var rndRow = new Random().Next(1, BoardSize.Item2);
             FoodPosition = new Point(rndColumn, rndRow);
         }
-
     }
 }
