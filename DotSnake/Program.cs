@@ -1,4 +1,6 @@
-﻿namespace DotSnake
+﻿using System;
+
+namespace DotSnake
 {
     class Program
     {
@@ -9,11 +11,11 @@
             var userController = new UserController();
 
             userController.NewUserInput += game.DirectionChange;
+            game.GameStateChanged += ui.Render;
 
             while (true)
             {
                 game.Tick();
-                ui.Render(game);
                 System.Threading.Thread.Sleep(50);
                 userController.RegisterInput();
             }

@@ -10,8 +10,9 @@ namespace DotSnake
             Console.CursorVisible = false;
         }
 
-        public void Render(Game game)
+        public void Render(object sender, EventArgs e)
         {
+            var game = (Game) sender;
             string toBeRendered = string.Empty;
             
             for (int i = game.BoardSize.VerticalHeight; i >= 1; i--)

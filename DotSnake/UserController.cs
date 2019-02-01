@@ -37,8 +37,7 @@ namespace DotSnake
 
         protected virtual void OnNewUserInput(Direction e)
         {
-            EventHandler<Direction> handler = NewUserInput;
-            handler?.Invoke(this, e);
+            NewUserInput?.Invoke(this, e);
         }
     }
 }

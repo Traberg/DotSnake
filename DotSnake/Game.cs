@@ -5,6 +5,8 @@ namespace DotSnake
 {
     public class Game
     {
+        public event EventHandler GameStateChanged;
+
         public (int HorizontalLength, int VerticalHeight) BoardSize { get; }
 
         public Snake Snake { get; set; }
@@ -49,7 +51,10 @@ namespace DotSnake
 
             if(Snake.IsCollided())
                 throw new Exception("oi oi oi you fucked up m80");
+
+            GameStateChanged?.Invoke(this, EventArgs.Empty);
         }
+
 
         public void DirectionChange(object sender, Direction direction)
         {
