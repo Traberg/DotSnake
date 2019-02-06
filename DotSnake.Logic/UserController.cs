@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotSnake
+namespace DotSnake.Logic
 {
     public class UserController
     {

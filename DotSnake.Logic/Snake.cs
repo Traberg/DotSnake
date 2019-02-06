@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Linq;
 
-namespace DotSnake
+namespace DotSnake.Logic
 {
     public class Snake
     {

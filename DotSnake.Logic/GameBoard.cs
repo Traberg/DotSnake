@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 
-namespace DotSnake
+namespace DotSnake.Logic
 {
-    public class Game
+    public class GameBoard
     {
         public event EventHandler GameStateChanged;
 
@@ -13,14 +13,19 @@ namespace DotSnake
         public Point FoodPosition { get; set; }
 
 
-        public Game((int HorizontalLength, int VerticalHeight) boardSize)
+        public GameBoard((int HorizontalLength, int VerticalHeight) boardSize)
+        {
+            BoardSize = boardSize;
+            Reset();
+        }
+
+        internal void Reset()
         {
             Snake = new Snake();
-            BoardSize = boardSize;
             SpawnFood();
         }
 
-        public void Tick()
+        internal Result Tick()
         {
             var newHeadPoint = Snake.GetHeadPoint();
             switch (Snake.SnakeDirection)
@@ -39,20 +44,19 @@ namespace DotSnake
                     break;
             }
 
-            if (newHeadPoint.X == FoodPosition.X && newHeadPoint.Y == FoodPosition.Y)
+            bool isFed = newHeadPoint.X == FoodPosition.X && newHeadPoint.Y == FoodPosition.Y;
+            bool died = Snake.IsCollided();
+
+            if (isFed)
             {
                 SpawnFood();
-                Snake.UpdatePosition(newHeadPoint, true);
-            }
-            else
-            {
-                Snake.UpdatePosition(newHeadPoint);
-            }
-
-            if(Snake.IsCollided())
-                throw new Exception("oi oi oi you fucked up m80");
+            }            
+            Snake.UpdatePosition(newHeadPoint, isFed);
 
             GameStateChanged?.Invoke(this, EventArgs.Empty);
+
+
+            return new Result(didEat: isFed, died: died);
         }
 
 

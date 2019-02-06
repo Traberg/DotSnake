@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotSnake", "DotSnake\DotSnake.csproj", "{5E837536-6C39-4653-842E-D88839E72BFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotSnake.Logic", "DotSnake.Logic\DotSnake.Logic.csproj", "{9BB45464-7261-4698-A217-EA3923A3A5BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5E837536-6C39-4653-842E-D88839E72BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E837536-6C39-4653-842E-D88839E72BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E837536-6C39-4653-842E-D88839E72BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BB45464-7261-4698-A217-EA3923A3A5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BB45464-7261-4698-A217-EA3923A3A5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BB45464-7261-4698-A217-EA3923A3A5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BB45464-7261-4698-A217-EA3923A3A5BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

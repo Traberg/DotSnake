@@ -1,4 +1,4 @@
-﻿namespace DotSnake
+﻿namespace DotSnake.Logic
 {
     public enum Direction
     {
