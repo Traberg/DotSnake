@@ -16,8 +16,16 @@ namespace DotSnake.Logic
             var game = (GameBoard) sender;
             string toBeRendered = string.Empty;
 
+            for (int j = 1; j <= game.BoardSize.HorizontalLength; j++)
+            {
+                toBeRendered += "--";
+            }
+            toBeRendered += "--";
+            toBeRendered += Environment.NewLine;
+
             for (int i = game.BoardSize.VerticalHeight; i >= 1; i--)
             {
+                toBeRendered += "|";
                 for (int j = 1; j <= game.BoardSize.HorizontalLength; j++)
                 {
                     var point = new Point(j, i);
@@ -25,9 +33,16 @@ namespace DotSnake.Logic
                         : point == game.FoodPosition ? "F "
                         : "  ";
                 }
-
+                toBeRendered += "|";
                 toBeRendered += Environment.NewLine;
             }
+
+            for (int j = 1; j <= game.BoardSize.HorizontalLength; j++)
+            {
+                toBeRendered += "--";
+            }
+            toBeRendered += "--";
+            toBeRendered += Environment.NewLine;
 
             Console.SetCursorPosition(0, 0);
             Console.Write(toBeRendered);
