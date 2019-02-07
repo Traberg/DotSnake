@@ -19,9 +19,9 @@ namespace DotSnake.Logic
         private readonly int _numberOflevels = 40;
         private readonly int _speedIncreaseValue = 15;
 
-        private int currentLevel = 1;
+        private int _currentLevel = 1;
 
-        private GameStatus _gameStatus = GameStatus.Playing;
+        private GameStatus _gameStatus = GameStatus.Menu;
 
         public Game(GameBoard gameBoard, UI ui1, UserController controller)
         {
@@ -79,10 +79,10 @@ namespace DotSnake.Logic
                         }
                         else if (result.DidEat)
                         {
-                            if (currentLevel != _numberOflevels)
+                            if (_currentLevel != _numberOflevels)
                             {
-                                currentLevel++;
-                                var currentSpeed = _levels[currentLevel];
+                                _currentLevel++;
+                                var currentSpeed = _levels[_currentLevel];
                                 _delaySpeed = currentSpeed;
                             }
                         }
@@ -101,7 +101,7 @@ namespace DotSnake.Logic
                         _ui.ClearScreen();
                         _delaySpeed = 200;
                         _gameStatus = GameStatus.Playing;
-                        currentLevel = 1;
+                        _currentLevel = 1;
                         _gameBoard.Reset();
                         break;
                 }

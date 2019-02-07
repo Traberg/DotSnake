@@ -20,7 +20,7 @@ namespace DotSnake.Logic
             {
                 toBeRendered += "--";
             }
-            toBeRendered += "--";
+            toBeRendered += "-";
             toBeRendered += Environment.NewLine;
 
             for (int i = game.BoardSize.VerticalHeight; i >= 1; i--)
@@ -33,6 +33,8 @@ namespace DotSnake.Logic
                         : point == game.FoodPosition ? "F "
                         : "  ";
                 }
+
+                toBeRendered = toBeRendered.Remove(toBeRendered.Length - 1, 1);
                 toBeRendered += "|";
                 toBeRendered += Environment.NewLine;
             }
@@ -41,7 +43,7 @@ namespace DotSnake.Logic
             {
                 toBeRendered += "--";
             }
-            toBeRendered += "--";
+            toBeRendered += "-";
             toBeRendered += Environment.NewLine;
 
             Console.SetCursorPosition(0, 0);
